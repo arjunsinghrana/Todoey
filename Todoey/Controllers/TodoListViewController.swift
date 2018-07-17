@@ -13,7 +13,7 @@ class TodoListViewController: UITableViewController {
 
     var itemArray: [Item] = [Item]()
     
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+//    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     
     // Accessing the shared instance of UIApplication, casting its delegate to our AppDelegate and then getting the view context from its persistent container
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -85,8 +85,6 @@ class TodoListViewController: UITableViewController {
             self.itemArray.append(newItem)
             
             self.saveItems()
-            
-            self.tableView.reloadData()
             
         }
         

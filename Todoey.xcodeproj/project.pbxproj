@@ -13,6 +13,7 @@
 		DC85761F20FC95BA0098F75A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC85761E20FC95BA0098F75A /* Assets.xcassets */; };
 		DC85762220FC95BA0098F75A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC85762020FC95BA0098F75A /* LaunchScreen.storyboard */; };
 		DC85765220FDD1350098F75A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC85765020FDD1340098F75A /* DataModel.xcdatamodeld */; };
+		DC85765420FDE6880098F75A /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC85765320FDE6880098F75A /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DC85762120FC95BA0098F75A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC85762320FC95BA0098F75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC85765120FDD1350098F75A /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		DC85765320FDE6880098F75A /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				DC85761920FC95B10098F75A /* TodoListViewController.swift */,
+				DC85765320FDE6880098F75A /* CategoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC85765420FDE6880098F75A /* CategoryViewController.swift in Sources */,
 				DC85761A20FC95B10098F75A /* TodoListViewController.swift in Sources */,
 				DC85765220FDD1350098F75A /* DataModel.xcdatamodeld in Sources */,
 				DC85761820FC95B10098F75A /* AppDelegate.swift in Sources */,
