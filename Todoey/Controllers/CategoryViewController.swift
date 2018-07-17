@@ -11,7 +11,7 @@ import CoreData
 
 class CategoryViewController: UITableViewController {
 
-    var categoryArray: [Category] = [Category]()
+    var categories: [Category] = [Category]()
     
     // Accessing the shared instance of UIApplication, casting its delegate to our AppDelegate and then getting the view context from its persistent container
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -25,14 +25,14 @@ class CategoryViewController: UITableViewController {
 
     //MARK: - TableView DataSource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryArray.count
+        return categories.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
         
-        let category = categoryArray[indexPath.row]
+        let category = categories[indexPath.row]
         
         cell.textLabel?.text = category.name
         
@@ -40,7 +40,19 @@ class CategoryViewController: UITableViewController {
     }
     
     //MARK: - TableView Delegate Methods
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "goToItems", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as! TodoListViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategory = categories[indexPath.row]
+        }
+    }
     
     //MARK: - Model Manipulation Methods
     func saveCategories() {
@@ -57,7 +69,7 @@ class CategoryViewController: UITableViewController {
     func loadCategories(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
         
         do {
-            categoryArray = try context.fetch(request)
+            categories = try context.fetch(request)
         }   catch {
             print("Error fetching data from context : \(error)")
         }
@@ -84,7 +96,7 @@ class CategoryViewController: UITableViewController {
             let newCategory = Category(context: self.context)
             newCategory.name = text
             
-            self.categoryArray.append(newCategory)
+            self.categories.append(newCategory)
             
             self.saveCategories()
         }
